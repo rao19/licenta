@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LICENTA</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+            <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+            <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+       <script src="https://rawgit.com/gasolin/aframe-href-component/master/dist/aframe-href-component.min.js"></script>
+    
+
+      <script src="https://unpkg.com/aframe-animation-component@5.0.0/dist/aframe-animation-component.min.js">
+            
+      </script>
+      
+  </head>
+  <body>
+      <a-scene>
+        
+          
+          <!--Asset Management System-->
+          
+             <a-assets>
+              <img id="sky" src="IMG-Lic/1861.jpg">
+            <!-- <img id="plane" src="IMG-Lic/3222830.jpg"> -->
+                  <a-asset-item id="scene" src="IMG-Lic/scene.gltf">
+                      </a-asset-item>
+                      <a-asset-item id="zebra" src="IMG-Lic/Zebra_01.gltf">
+                      </a-asset-item>
+                 <a-asset-item id="tiger" src="IMG-Lic/Mesh_BengalTiger.gltf">
+                      </a-asset-item>
+                 <a-asset-item id="gorilla" src="IMG-Lic/Mesh_Gorilla.gltf">
+                      </a-asset-item>
+                 <audio id="zebrasound" src="IMG-Lic/zebra4.ogg"></audio>
+                 
+          </a-assets>
+        <!-- Default lighting injected by A-Frame. -->
+<a-entity light="type: ambient; color: #BBB"></a-entity>
+<a-entity light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+      <!--Sky-->
+        <a-sky src="#sky"></a-sky>
+          <!--Plane-->
+          <a-plane src="#plane" height="6000" width="6000" rotation="-90 0 0"></a-plane> 
+    
+         <!--Camera-->
+                   
+          <a-camera position="20 55 350">
+            <a-cursor></a-cursor>
+          </a-camera>
+ <a-entity position="-35 70 280" scale="45 45 45"
+                      text="value:Cele mai mari dintre primate, gorilele traiesc in padurile tropicale ale Africii.ADN-ul gorilei se aseamana in proportie de 98-99% cu cel uman.;
+                            color:#212121;
+                            align:center;
+                            wrapCount:40"
+                      geometry="primitive: plane; width: auto; height: auto"
+                      event-set__enter="_event:mouseenter; text.color:#FF0000"
+                       event-set__leave="_event:mouseleave; text.color:#212121"
+           sound="src:#zebrasound;
+                           on:click;
+                  volume:10"></a-entity>
+          
+          <a-entity position="70 70 280" scale="45 45 45"
+                      text="value:Exact ca si amprentele degetelor noastre, dungile zebrelor sunt unice la fiecare in parte.;
+                            color:#212121;
+                            align:center;
+                            wrapCount:40"
+                      geometry="primitive: plane; width: auto; height: auto"
+                      event-set__enter="_event:mouseenter; text.color:#FF0000"
+                       event-set__leave="_event:mouseleave; text.color:#212121"></a-entity>
+          
+          
+          <a-entity position="-95 70 95" scale="70 70 70"
+                      text="value:Cea mai mare specie de tigru este Tigrul Siberian si poate ajunge sa cantareasca si 300 kg.;
+                            color:#212121;
+                            align:center;
+                            wrapCount:40"
+                      geometry="primitive: plane; width: auto; height: auto"
+                      event-set__enter="_event:mouseenter; text.color:#FF0000"
+                       event-set__leave="_event:mouseleave; text.color:#212121"></a-entity>
+         
+         
+                   
+            <!-- Park-->
+          <a-entity gltf-model="#scene"
+                    light="style:ambient;
+                           intensity=14"
+                    position="-10 0 50"
+                    scale="15 15 15"
+                  
+                    repeat="infinite"></a-entity>
+          <!--Zebra-->
+          <a-entity  id="zebrasite" gltf-model="#zebra"
+                    color="#FFFFFF"
+                    position="90 50 280 "
+                    scale="0.05 0.05 0.05"
+                    rotation="0 -90 0"
+                    >
+          </a-entity>
+          <!--Tiger-->
+          <a-entity  id="tigersite" gltf-model="#tiger"
+                    position="-74 35  95 "
+                    scale="0.3 0.3 0.3"
+                    rotation="0 0 0">
+          </a-entity>
+          <!--Gorilla-->
+          <a-entity id="gorillasite" gltf-model="#gorilla"
+                    position="-30 45  290 "
+                    scale="0.2 0.2 0.2"
+                    rotation="0 45 0">
+              
+          </a-entity>
+          
+        
+          
+      </a-scene>
+    </body>
+    <script>
+    document
+    .querySelector("#zebrasite")
+        .addEventListener("mouseenter", e=>{
+        location.href="https://goki.ro/animale/zebra_2909.html";
+});
+    </script>
+    <script>
+    document
+    .querySelector("#tigersite")
+        .addEventListener("mouseenter", e=>{
+        location.href="https://goki.ro/animale/tigrul_2881.html";
+});
+    </script>
+  <script>
+    document
+    .querySelector("#gorillasite")
+        .addEventListener("mouseenter", e=>{
+        location.href="https://goki.ro/animale/gorila_2938.html";
+});
+    </script>
+    <script>
+    document.querySelector('button')
+        .addEventListener('click', function() {
+  context.resume().then(() => {
+    console.log('Playback resumed successfully');
+  });
+});</script>
+  
+</html>
